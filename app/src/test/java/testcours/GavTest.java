@@ -1,19 +1,25 @@
 package testcours;
 
-
-
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class GavTest {
 
-    @Test
-    void shouldParseAnotherCoordinate() {
-        Gav gav = new Gav("org.other:lib-c:3.0.0");
+    
+    @ParameterizedTest
+    @CsvSource({
+        "org.acme:lib-a:1.0.0, org.acme, lib-a, 1.0.0",
+        "org.other:lib-c:3.0.0, org.other, lib-c, 3.0.0"
+    })
+    void shouldParseCoordinate(String coordinate, String expectedGroup,
+                            String expectedArtifact, String expectedVersion) {
 
-        assertEquals("org.other", gav.group());
-        assertEquals("lib-c", gav.artifact());
-        assertEquals("3.0.0", gav.version());
+        Gav gav = new Gav(coordinate);
+
+        assertEquals(expectedGroup, gav.group());
+        assertEquals(expectedArtifact, gav.artifact());
+        assertEquals(expectedVersion, gav.version());
     }
 }

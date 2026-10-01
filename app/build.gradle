@@ -14,8 +14,8 @@ repositories {
 dependencies {
     // JUnit 5
     testImplementation libs.junit.jupiter
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.12.2'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-
     // Hamcrest
     testImplementation 'org.hamcrest:hamcrest:3.0'
 
