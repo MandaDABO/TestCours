@@ -10,3 +10,6 @@
 - [ ] Implémenter la résolution des dépendances transitives
 - [ ] Permettre au resolver d'interroger le registre pour connaître les dépendances des artefacts
 - [ ] Implémenter l'orchestration du processus par BuildTool
+- [ ] Rejeter une coordonnée sans exactement trois composants
+- [ ] Rejeter une coordonnée contenant un composant vide
+- [ ] Rejeter une coordonnée vide
