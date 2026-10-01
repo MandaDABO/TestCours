@@ -26,4 +26,11 @@ class InMemoryStorageTest {
 
         assertEquals(Optional.of(artifact), storage.get(gav));
     }
+
+    @Test
+    void shouldReturnEmptyWhenArtifactDoesNotExist() {
+        Gav gav = new Gav("org.acme:unknown:1.0.0");
+
+        assertEquals(Optional.empty(), storage.get(gav));
+    }
 }
